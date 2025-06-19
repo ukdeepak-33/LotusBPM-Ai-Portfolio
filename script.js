@@ -1,3 +1,4 @@
+
 AOS.init({
   duration: 800,
   once: true
@@ -5,5 +6,5 @@ AOS.init({
 
 document.getElementById('contact-form').addEventListener('submit', e => {
   e.preventDefault();
-  alert("Message sent! (You can connect this to Formspree or Netlify Forms)");
+  alert("Message sent! (Connect this to Formspree or Netlify)");
 });
