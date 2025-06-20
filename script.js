@@ -1,4 +1,4 @@
-OS.init({
+AOS.init({
   duration: 800, // Animation duration
   once: true     // Whether animation should happen only once - true for the example style
 });
