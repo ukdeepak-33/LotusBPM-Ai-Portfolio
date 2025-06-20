@@ -39,45 +39,109 @@ body {
 
 /* Navbar */
 .navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background: var(--bg-color);
-  padding: 20px 0;
-  box-shadow: 0 2px 10px var(--shadow-light);
-  z-index: 1000; /* Stays on top */
-  transition: box-shadow 0.3s ease; /* Smooth transition for potential scroll effects */
+    position: sticky;
+    top: 0;
+    width: 100%; /* Ensure it spans full width */
+    background: var(--bg-color); /* Using CSS variable for consistency */
+    padding: 1rem 0; /* Adjust padding to match your 1rem vertical padding */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* Your specified box shadow */
+    z-index: 9999; /* Updated z-index as per your request */
+    transition: box-shadow 0.3s ease; /* Keep smooth shadow transition */
 }
 
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px; /* Your specified max-width */
+    margin: auto; /* Your specified margin for centering */
+    padding: 0 2rem; /* Apply horizontal padding here to match your 2rem */
 }
 
-.brand {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0;
+/* Brand Name (LotusBPM.Ai) */
+.brand { /* This targets the H2 with class .brand */
+    font-size: 1.5rem; /* Your specified font-size */
+    font-weight: 700; /* Your specified font-weight */
+    color: var(--text-color); /* Using CSS variable for consistency, your specified #1a1a1a is similar */
+    margin: 0; /* Remove default margin from H2 for cleaner layout */
 }
 
-.socials a {
-  margin-left: 20px;
-  display: inline-block; /* Ensures consistent spacing and click area */
+/* Central Navigation Links */
+.nav-center {
+    display: flex;
+    gap: 2rem; /* Your specified gap */
+    flex-grow: 1; /* Allows it to take available space */
+    justify-content: center; /* Centers the nav links if there's extra space */
+    flex-wrap: wrap; /* Allows links to wrap on smaller screens if needed */
 }
 
-.socials img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.2s ease-in-out;
+.nav-center a {
+    color: #333; /* Your specified color */
+    font-weight: 500; /* Your specified font-weight */
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.2s ease; /* Add transition for hover and subtle transform */
+    padding: 5px 0; /* Add a bit of vertical padding for larger click area */
 }
 
-.socials img:hover {
-  transform: translateY(-3px);
+.nav-center a:hover {
+    opacity: 0.6; /* Your specified opacity on hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Right-hand Social Icons */
+.nav-right {
+    display: flex; /* Ensure social icons are a flex container */
+    align-items: center; /* Align vertically with other navbar content */
+    gap: 1rem; /* Use your specified 1rem gap */
+}
+
+.nav-right img {
+    width: 24px; /* Your specified width */
+    height: 24px; /* Ensure height matches width for square icons */
+    transition: transform 0.2s ease-in-out; /* Add transition for hover effect */
+}
+
+.nav-right img:hover {
+    transform: translateY(-3px) scale(1.1); /* Subtle lift and slightly larger on hover */
+}
+
+
+/* Media Queries for Navbar Responsiveness */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; /* Stack nav items vertically on tablets */
+        gap: 1rem; /* Adjust gap when stacked */
+        padding: 1rem 2rem; /* Ensure padding on all sides */
+    }
+
+    .nav-center {
+        flex-direction: column; /* Stack nav links vertically */
+        gap: 0.8rem; /* Smaller gap for stacked links */
+        align-items: center; /* Center stacked links */
+        width: 100%; /* Take full width */
+    }
+
+    .nav-left,
+    .nav-right {
+        width: 100%; /* Take full width */
+        justify-content: center; /* Center content within these divs */
+    }
+
+    .brand {
+        font-size: 1.3rem; /* Slightly smaller on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.8rem 1rem; /* Smaller padding on phones */
+    }
+    .nav-center a {
+        font-size: 0.95rem; /* Slightly smaller font size for links */
+    }
+    .brand {
+        font-size: 1.2rem; /* Even smaller on phones */
+    }
 }
 
 /* Hero Section */
