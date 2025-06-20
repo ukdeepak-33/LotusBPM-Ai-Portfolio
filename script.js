@@ -1,4 +1,4 @@
-AOS.init({
+OS.init({
   duration: 800, // Animation duration
   once: true     // Whether animation should happen only once - true for the example style
 });
@@ -8,11 +8,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
 
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+    // Get the target element
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      // Calculate offset to account for sticky header
+      const headerOffset = 80; // Approximate height of your sticky header
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
   });
 });
+
 
 // Counter animation (for the .count elements)
 const counters = document.querySelectorAll('.count');
